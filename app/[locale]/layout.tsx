@@ -15,10 +15,7 @@ type Props = {
   params: { locale: string };
 };
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: Readonly<Props>) {
+export default function RootLayout({ children, params: { locale } }: Props) {
   return (
     <html className="h-full" lang={locale}>
       <body className={`${inter.className} h-full`}>

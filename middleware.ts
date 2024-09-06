@@ -30,7 +30,7 @@ const defaultLocales: Record<string, string> = {
 };
 
 export async function middleware(req: Request) {
-  const ip = req.headers.get("x-forwarded-for") || "http://localhost:3000/"; // Fallback to localhost
+  const ip = req.headers.get("x-forwarded-for") || "http://localhost:3000/";
   console.log("myip",ip);
   
   const browserLanguage = req.headers.get("accept-language")?.split(",")[0] || "en";
