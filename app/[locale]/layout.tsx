@@ -12,10 +12,13 @@ export const metadata: Metadata = {
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale?: string }; // Make locale optional, just in case it's missing
 };
 
-export default function RootLayout({ children, params: { locale } }: Props) {
+export default function RootLayout({
+  children,
+  params: { locale = "en" }, // Fallback to "en" if no locale is passed
+}: Props) {
   return (
     <html className="h-full" lang={locale}>
       <body className={`${inter.className} h-full`}>

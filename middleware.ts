@@ -5,12 +5,12 @@ async function fetchUserLocation(ip: string) {
   try {
     console.log(`Fetching location data for IP: ${ip}`);
     const res = await fetch(`https://ipapi.co/${ip}/json/`);
-    
+
     if (!res.ok) throw new Error("Failed to fetch location data");
-    
+
     const data = await res.json();
     console.log("Location data received:", data);
-    
+
     return {
       country: data.country_code?.toLowerCase() || "us", // Fallback to 'us' if country_code is unavailable
       language: data.languages?.split(",")[0] || "en",   // Fallback to 'en' if no language is detected
@@ -31,8 +31,8 @@ const defaultLocales: Record<string, string> = {
 
 export async function middleware(req: Request) {
   const ip = req.headers.get("x-forwarded-for") || "http://localhost:3000/";
-  console.log("myip",ip);
-  
+  console.log("myip", ip);
+
   const browserLanguage = req.headers.get("accept-language")?.split(",")[0] || "en";
 
   console.log(`Detected IP: ${ip}`);
