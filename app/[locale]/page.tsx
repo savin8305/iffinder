@@ -1,8 +1,12 @@
 import { useTranslations } from "next-intl";
 import Product from "@/app/[locale]/components/product";
 
-export default function Home({ locale }: { locale: string }) {
-  const t = useTranslations();
+type Props = {
+  params: { locale: string }; // Ensure locale comes from params
+};
+
+export default function Home({ params: { locale } }: Props) {
+  const t = useTranslations(); // Should be wrapped inside IntlProvider
 
   return (
     <div>

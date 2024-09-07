@@ -1,10 +1,10 @@
 {
     "Test": {
-      "title": "Hello"
+      "title": "fr-Hello"
     },
-    "title": "The Logo",
+    "title": "The Logo-fr",
     "products": {
-      "catalog": "Catalog-in",
+      "catalog": "Catalog-fr",
       "cart": "Add to Cart",
       "productOne": {
         "altText": "A pencil icon",
