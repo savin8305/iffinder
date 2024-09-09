@@ -20,7 +20,7 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: Readonly<Props>) {
-  const supportedLocales = ["en", "fr", "nl", "de", "es", "ta"]; // Your supported locales
+  const supportedLocales = ["en", "fr", "nl", "de", "es", "ta"]; 
   // Function to generate dynamic hreflang links
   const generateHreflangLinks = () => {
     const hreflangLinks = supportedLocales.map((locale) => {
@@ -28,7 +28,6 @@ export default async function RootLayout({
       return <link key={locale} rel="alternate" hrefLang={locale} href={url} />;
     });
 
-    // Add x-default fallback (if required)
     hreflangLinks.push(
       <link
         key="x-default"

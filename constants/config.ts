@@ -1,7 +1,7 @@
-import { Pathnames } from "next-intl/navigation";
+import { Pathnames } from "next-intl/routing";
 
-export const locales = ["en", "fr", "nl", "de", "es","ta"] as const; // Supported languages
-export const defaultLocale = "en"; // Default language
+export const locales = ["en", "fr", "nl", "de", "es","ta"] as const; 
+export const defaultLocale = "en";
 
 export const pathnames = {
   "/": "/",
