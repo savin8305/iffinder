@@ -8,6 +8,6 @@ export default getRequestConfig(async ({ locale }) => {
   console.log("i am working end");
 
   return {
-    messages: (await import(`./app/[locale]/dictionaries/${locale}.json`)).default,
+    messages: (await import(`./app/[country]/[locale]/dictionaries/${locale}.json`)).default,
   };
 });

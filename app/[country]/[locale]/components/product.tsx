@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/app/[locale]/components/button";
+import Button from "@/app/[country]/[locale]/components/button";
 import write from "public/write.svg";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";

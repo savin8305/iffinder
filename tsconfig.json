@@ -20,7 +20,7 @@
     ],
     "paths": {
       "@/constants/*": ["./constants/*"],
-      "@/components/*": ["./app/[locale]/components/*"],
+      "@/components/*": ["app/[country]/[locale]/components/*"],
       "@/lib/*": ["./lib/*"],
       "@/*": ["./*"]
     }
