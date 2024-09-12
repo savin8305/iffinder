@@ -1,8 +1,10 @@
+
 import Image from "next/image";
 import Button from "@/app/[country]/[locale]/components/button";
 import write from "public/write.svg";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Link from "next/link";
+import NavigateButton from "@/lib/navigation";
 
 type Props = {
   id: string;
@@ -31,7 +33,7 @@ export default async function Product({ id, locale }: Props) {
       </p>
       <Link href={"/about"}>
         {" "}
-        <Button key={"products.cart"} locale={locale} />
+        <NavigateButton locale={locale} />
       </Link>
     </div>
   );
