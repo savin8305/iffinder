@@ -32,8 +32,7 @@ export default async function Product({ id, locale }: Props) {
         {t(`products.${id}.description`)}
       </p>
       <Link href={"/about"}>
-        {" "}
-        <NavigateButton locale={locale} />
+        about
       </Link>
     </div>
   );
