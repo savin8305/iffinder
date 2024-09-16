@@ -1,27 +1,39 @@
 {
-    "Test": {
-      "title": "Hello"
+  "Test": {
+    "title": "Hello"
+  },
+  "title": "The Logo",
+  "navbar": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "features": "Features",
+    "docs": "Docs",
+    "blog": "Blog"
+  },
+  "products": {
+    "catalog": "Catalog",
+    "cart": "Add to Cart",
+    "productOne": {
+      "altText": "A pencil icon",
+      "title": "Writes Upside-Down",
+      "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
     },
-    "title": "The Logo-in",
-    "products": {
-      "catalog": "Catalog-in",
-      "cart": "Add to Cart",
-      "productOne": {
-        "altText": "A pencil icon",
-        "title": "Writes Upside-Down",
-        "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
-      },
-      "productTwo": {
-        "altText": "A pencil icon",
-        "title": "Writes Any Language",
-        "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
-      }
-    },
-    "footer": {
-      "allRights": "All rights reserved (not really)"
-    },
-    "localeSwitcher": {
-      "label": "Change language"
+    "productTwo": {
+      "altText": "A pencil icon",
+      "title": "Writes Any Language",
+      "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
     }
+  },
+  "footer": {
+    "allRights": "All rights reserved (not really)"
+  },
+  "localeSwitcher": {
+    "label": "Change language"
+  },
+  "shuffleHero": {
+    "heading": "Better every day",
+    "subheading": "Let's change it up a bit",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Find a class"
   }
-  
+}

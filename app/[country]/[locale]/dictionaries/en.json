@@ -3,6 +3,14 @@
     "title": "Hello"
   },
   "title": "The Logo",
+  "navbar": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "features": "Features",
+    "docs": "Docs",
+    "blog": "Blog"
+  },
+ 
   "products": {
     "catalog": "Catalog",
     "cart": "Add to Cart",
@@ -22,5 +30,11 @@
   },
   "localeSwitcher": {
     "label": "Change language"
+  },
+  "shuffleHero": {
+    "heading": "Better every day",
+    "subheading": "Let's change it up a bit",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Find a class"
   }
 }

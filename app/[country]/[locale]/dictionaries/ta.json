@@ -1,27 +1,39 @@
 {
-    "Test": {
-      "title": "Hello"
+  "Test": {
+    "title": "வணக்கம்"
+  },
+  "title": "உரை",
+  "navbar": {
+    "home": "முதன்மை",
+    "pricing": "விலை",
+    "features": "சிறப்பம்சங்கள்",
+    "docs": "ஆவணங்கள்",
+    "blog": "பிளாக்"
+  },
+  "products": {
+    "catalog": "அட்டவணை",
+    "cart": "கூட்டுவத்தில் சேர்க்கவும்",
+    "productOne": {
+      "altText": "ஒரு பென்சில் சின்னம்",
+      "title": "தோன்றிய பக்கம் எழுதுகிறது",
+      "description": "சுழி கிரவிட்டி பென் எந்த திசையிலும் எழுத பயன்படுத்த முடியும், उल्टा भी। இது ஏகாந்தம் தாங்கும் பண்புகளை கொண்டது."
     },
-    "title": "The Logo-in-ta",
-    "products": {
-      "catalog": "Catalog-in",
-      "cart": "Add to Cart",
-      "productOne": {
-        "altText": "A pencil icon",
-        "title": "Writes Upside-Down",
-        "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
-      },
-      "productTwo": {
-        "altText": "A pencil icon",
-        "title": "Writes Any Language",
-        "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
-      }
-    },
-    "footer": {
-      "allRights": "All rights reserved (not really)"
-    },
-    "localeSwitcher": {
-      "label": "Change language"
+    "productTwo": {
+      "altText": "ஒரு பென்சில் சின்னம்",
+      "title": "எந்த மொழியிலும் எழுதுகிறது",
+      "description": "i18n பென் உங்கள் உரையை மொழிபெயர்க்கும். உங்கள் வாசகம் எழுதுங்கள் மற்றும் திடீரென எந்த மொழியோ பின் மொழிபெயர்க்கப்படும்!"
     }
+  },
+  "footer": {
+    "allRights": "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டுள்ளன (வார்த்தை)"
+  },
+  "localeSwitcher": {
+    "label": "மொழியை மாற்றவும்"
+  },
+  "shuffleHero": {
+    "heading": "ஒவ்வொரு நாளும் சிறப்பாக",
+    "subheading": "சற்று மாற்றுவோம்",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "ஒரு வகுப்பைக் கண்டறியவும்"
   }
-  
+}

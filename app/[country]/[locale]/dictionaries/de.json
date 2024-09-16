@@ -1,27 +1,39 @@
 {
-    "Test": {
-      "title": "Hello"
+  "Test": {
+    "title": "Hallo"
+  },
+  "title": "Das Logo",
+  "navbar": {
+    "home": "Startseite",
+    "pricing": "Preise",
+    "features": "Funktionen",
+    "docs": "Dokumente",
+    "blog": "Blog"
+  },
+  "products": {
+    "catalog": "Katalog",
+    "cart": "In den Warenkorb",
+    "productOne": {
+      "altText": "Ein Bleistift-Symbol",
+      "title": "Schreibt auf dem Kopf",
+      "description": "Der Zero Gravity Pen kann in jeder Ausrichtung verwendet werden, auch auf dem Kopf. Er funktioniert sogar im Weltraum."
     },
-    "title": "The Logo",
-    "products": {
-      "catalog": "Catalog-de",
-      "cart": "Add to Cart",
-      "productOne": {
-        "altText": "A pencil icon",
-        "title": "Writes Upside-Down",
-        "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
-      },
-      "productTwo": {
-        "altText": "A pencil icon",
-        "title": "Writes Any Language",
-        "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
-      }
-    },
-    "footer": {
-      "allRights": "All rights reserved (not really)"
-    },
-    "localeSwitcher": {
-      "label": "Change language"
+    "productTwo": {
+      "altText": "Ein Bleistift-Symbol",
+      "title": "Schreibt in jeder Sprache",
+      "description": "Der i18n-Stift übersetzt deinen Text für dich. Schreib einfach deinen Satz und er wird magisch in jede gewünschte Sprache übersetzt!"
     }
+  },
+  "footer": {
+    "allRights": "Alle Rechte vorbehalten (nicht wirklich)"
+  },
+  "localeSwitcher": {
+    "label": "Sprache wechseln"
+  },
+  "shuffleHero": {
+    "heading": "Jeden Tag besser",
+    "subheading": "Lass uns ein bisschen was ändern",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Finde einen Kurs"
   }
-  
+}

@@ -1,26 +1,39 @@
 {
   "Test": {
-    "title": "Hello"
+    "title": "Hallo"
   },
   "title": "Het Logo",
+  "navbar": {
+    "home": "Home",
+    "pricing": "Prijzen",
+    "features": "Kenmerken",
+    "docs": "Documenten",
+    "blog": "Blog"
+  },
   "products": {
     "catalog": "Catalogus",
-    "cart": "In winkelwagen",
+    "cart": "Aan winkelwagentje toevoegen",
     "productOne": {
-      "altText": "Een potlood",
-      "title": "Ondersteboven schrijven",
-      "description": "Met de Zero Gravity Pen kun je in elke richting schrijven, ook ondersteboven. Hij werkt zelfs in de ruimte."
+      "altText": "Een potlood icoon",
+      "title": "Schrijft ondersteboven",
+      "description": "De Zero Gravity Pen kan worden gebruikt om in elke oriëntatie te schrijven, inclusief ondersteboven. Het werkt zelfs in de ruimte."
     },
     "productTwo": {
-      "altText": "Een potlood",
-      "title": "Schrijft elke taal",
-      "description": "De i18n pen vertaalt je tekst voor je. Schrijf gewoon je zin en op magische wijze wordt deze vertaald naar elke taal die je maar wilt!"
+      "altText": "Een potlood icoon",
+      "title": "Schrijft in elke taal",
+      "description": "De i18n-pen vertaalt je tekst voor je. Schrijf gewoon je zin en het wordt magisch vertaald naar elke gewenste taal!"
     }
   },
   "footer": {
     "allRights": "Alle rechten voorbehouden (niet echt)"
   },
   "localeSwitcher": {
-    "label": "Taal wijzigen"
+    "label": "Verander taal"
+  },
+  "shuffleHero": {
+    "heading": "Elke dag beter",
+    "subheading": "Laten we het een beetje veranderen",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Vind een les"
   }
 }

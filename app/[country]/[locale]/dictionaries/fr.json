@@ -1,27 +1,39 @@
 {
-    "Test": {
-      "title": "fr-Hello"
+  "Test": {
+    "title": "Bonjour"
+  },
+  "title": "Le Logo",
+  "navbar": {
+    "home": "Accueil",
+    "pricing": "Tarifs",
+    "features": "Fonctionnalités",
+    "docs": "Documents",
+    "blog": "Blog"
+  },
+  "products": {
+    "catalog": "Catalogue",
+    "cart": "Ajouter au panier",
+    "productOne": {
+      "altText": "Icône de crayon",
+      "title": "Écrit à l'envers",
+      "description": "Le stylo zéro gravité peut être utilisé pour écrire dans n'importe quelle orientation, y compris à l'envers. Il fonctionne même dans l'espace."
     },
-    "title": "The Logo-fr",
-    "products": {
-      "catalog": "Catalog-fr",
-      "cart": "Add to Cart",
-      "productOne": {
-        "altText": "A pencil icon",
-        "title": "Writes Upside-Down",
-        "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
-      },
-      "productTwo": {
-        "altText": "A pencil icon",
-        "title": "Writes Any Language",
-        "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
-      }
-    },
-    "footer": {
-      "allRights": "All rights reserved (not really)"
-    },
-    "localeSwitcher": {
-      "label": "Change language"
+    "productTwo": {
+      "altText": "Icône de crayon",
+      "title": "Écrit dans n'importe quelle langue",
+      "description": "Le stylo i18n traduira votre texte pour vous. Écrivez simplement votre phrase et elle sera magiquement traduite dans n'importe quelle langue souhaitée!"
     }
+  },
+  "footer": {
+    "allRights": "Tous droits réservés (pas vraiment)"
+  },
+  "localeSwitcher": {
+    "label": "Changer de langue"
+  },
+  "shuffleHero": {
+    "heading": "Mieux chaque jour",
+    "subheading": "Changeons un peu",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Trouvez un cours"
   }
-  
+}

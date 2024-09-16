@@ -1,27 +1,39 @@
 {
-    "Test": {
-      "title": "Hello"
+  "Test": {
+    "title": "Hola"
+  },
+  "title": "El Logo",
+  "navbar": {
+    "home": "Inicio",
+    "pricing": "Precios",
+    "features": "Características",
+    "docs": "Documentos",
+    "blog": "Blog"
+  },
+  "products": {
+    "catalog": "Catálogo",
+    "cart": "Añadir al carrito",
+    "productOne": {
+      "altText": "Un ícono de lápiz",
+      "title": "Escribe al revés",
+      "description": "El bolígrafo de gravedad cero se puede usar para escribir en cualquier orientación, incluso al revés. También funciona en el espacio exterior."
     },
-    "title": "The Logo",
-    "products": {
-      "catalog": "Catalog-es",
-      "cart": "Add to Cart",
-      "productOne": {
-        "altText": "A pencil icon",
-        "title": "Writes Upside-Down",
-        "description": "The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space."
-      },
-      "productTwo": {
-        "altText": "A pencil icon",
-        "title": "Writes Any Language",
-        "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
-      }
-    },
-    "footer": {
-      "allRights": "All rights reserved (not really)"
-    },
-    "localeSwitcher": {
-      "label": "Change language"
+    "productTwo": {
+      "altText": "Un ícono de lápiz",
+      "title": "Escribe en cualquier idioma",
+      "description": "El bolígrafo i18n traducirá tu texto por ti. Simplemente escribe tu frase y mágicamente será traducida a cualquier idioma que desees."
     }
+  },
+  "footer": {
+    "allRights": "Todos los derechos reservados (no realmente)"
+  },
+  "localeSwitcher": {
+    "label": "Cambiar idioma"
+  },
+  "shuffleHero": {
+    "heading": "Mejor cada día",
+    "subheading": "Cambiémoslo un poco",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Encuentra una clase"
   }
-  
+}

@@ -1,18 +1,17 @@
 import LocaleSwitcher from "./LocaleSwitcher";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { SlideTabs } from "./Navbar";
 
-export default async function Header({ locale }: { locale: string }) {
-  // Enable static rendering
-  unstable_setRequestLocale(locale);
-
-  const t = await getTranslations({ locale });
-
+export const Navbar = ({
+  translations,
+}: {
+  translations: Record<string, string>;
+}) => {
   return (
-    <div className="header flex justify-between items-center py-4 max-w-[792px] w-full">
-      <div className="flex-1 text-white text-base font-bold">{t("title")}</div>
-      <div className="flex items-end">
-        <LocaleSwitcher />
+    <div className="bg-neutral-100 py-1 fixed w-full z-[99999]">
+      <div className="flex justify-center items-center  mx-auto px-4">
+        <SlideTabs translations={translations} />
+        <LocaleSwitcher/>
       </div>
     </div>
   );
-}
+};

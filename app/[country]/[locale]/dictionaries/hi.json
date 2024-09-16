@@ -1,0 +1,39 @@
+{
+  "Test": {
+    "title": "नमस्ते"
+  },
+  "title": "लोगो",
+  "navbar": {
+    "home": "होम",
+    "pricing": "मूल्य निर्धारण",
+    "features": "विशेषताएँ",
+    "docs": "दस्तावेज़",
+    "blog": "ब्लॉग"
+  },
+  "products": {
+    "catalog": "कैटलॉग",
+    "cart": "कार्ट में जोड़ें",
+    "productOne": {
+      "altText": "एक पेंसिल आइकन",
+      "title": "उल्टा लिखता है",
+      "description": "ज़ीरो ग्रैविटी पेन को किसी भी दिशा में लिखने के लिए इस्तेमाल किया जा सकता है, यहां तक कि उल्टा। यह बाहरी अंतरिक्ष में भी काम करता है।"
+    },
+    "productTwo": {
+      "altText": "एक पेंसिल आइकन",
+      "title": "किसी भी भाषा में लिखता है",
+      "description": "i18n पेन आपके पाठ का अनुवाद करेगा। बस अपनी वाक्यांश को लिखें और जादुई रूप से यह किसी भी भाषा में अनुवादित हो जाएगा!"
+    }
+  },
+  "footer": {
+    "allRights": "सभी अधिकार सुरक्षित (वास्तव में नहीं)"
+  },
+  "localeSwitcher": {
+    "label": "भाषा बदलें"
+  },
+  "shuffleHero": {
+    "heading": "हर दिन बेहतर",
+    "subheading": "चलो इसे थोड़ा बदलते हैं",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "एक पाठ खोजें"
+  }
+}

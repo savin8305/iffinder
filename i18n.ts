@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
-export const locales = ["en", "fr", "nl", "de", "es"] as const;
+export const locales = ["en", "fr", "nl", "de", "es","hi", "ta"] as const;
 export default getRequestConfig(async ({ locale }) => {
   console.log("Guard is working...");
 
@@ -10,7 +10,6 @@ export default getRequestConfig(async ({ locale }) => {
       messages: (await import(`./app/[country]/[locale]/dictionaries/en.json`)).default,
     };
   }
-
   // If locale exists, return the localized messages
   return {
     messages: (await import(`./app/[country]/[locale]/dictionaries/${locale}.json`)).default,
