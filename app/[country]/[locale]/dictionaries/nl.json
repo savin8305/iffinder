@@ -1,28 +1,25 @@
 {
-  "Test": {
-    "title": "Hallo"
+  "meta": {
+    "home": {
+      "title": "Welkom bij uw App",
+      "description": "Ontdek geweldige functies en prijsplannen die voor u zijn afgestemd."
+    },
+    "about": {
+      "title": "Over Ons",
+      "description": "Leer meer over onze missie en waarden."
+    },
+    "pricing": {
+      "title": "Prijsplannen",
+      "description": "Kies het beste plan dat bij uw behoeften past."
+    }
   },
-  "title": "Het Logo",
   "navbar": {
     "home": "Home",
+    "about": "Over",
     "pricing": "Prijzen",
-    "features": "Kenmerken",
-    "docs": "Documenten",
+    "features": "Functies",
+    "docs": "Documentatie",
     "blog": "Blog"
-  },
-  "products": {
-    "catalog": "Catalogus",
-    "cart": "Aan winkelwagentje toevoegen",
-    "productOne": {
-      "altText": "Een potlood icoon",
-      "title": "Schrijft ondersteboven",
-      "description": "De Zero Gravity Pen kan worden gebruikt om in elke oriëntatie te schrijven, inclusief ondersteboven. Het werkt zelfs in de ruimte."
-    },
-    "productTwo": {
-      "altText": "Een potlood icoon",
-      "title": "Schrijft in elke taal",
-      "description": "De i18n-pen vertaalt je tekst voor je. Schrijf gewoon je zin en het wordt magisch vertaald naar elke gewenste taal!"
-    }
   },
   "footer": {
     "allRights": "Alle rechten voorbehouden (niet echt)"
@@ -34,6 +31,20 @@
     "heading": "Elke dag beter",
     "subheading": "Laten we het een beetje veranderen",
     "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
-    "button": "Vind een les"
+    "button": "Vind een klas"
+  },
+  "products": {
+    "catalog": "Catalogus",
+    "cart": "Toevoegen aan winkelwagen",
+    "productOne": {
+      "altText": "Een potlood icoon",
+      "title": "Schrijft ondersteboven",
+      "description": "De Zero Gravity Pen kan worden gebruikt om in elke oriëntatie te schrijven, inclusief ondersteboven. Het werkt zelfs in de ruimte."
+    },
+    "productTwo": {
+      "altText": "Een potlood icoon",
+      "title": "Schrijft elke taal",
+      "description": "De i18n pen zal uw tekst voor u vertalen. Schrijf gewoon uw zin en het wordt magisch vertaald naar elke gewenste taal!"
+    }
   }
 }

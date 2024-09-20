@@ -112,7 +112,7 @@ async function fetchUserLocation() {
   } catch (error) {
     console.error("Error fetching user location:", error);
     // Default to US and English if there's an error
-    return { country: "us", language: "en" };
+    return { country: "in", language: "en" };
   }
 }
 
@@ -169,10 +169,9 @@ export async function middleware(req: NextRequest) {
   }
 
   // Construct the new valid URL using detected country and browser language
+  // Redirect to the correct URL
   const url = req.nextUrl.clone();
-  url.pathname = `/${detectedCountry}/${browserLanguage}`;
-
-  console.log("Redirecting to:", url);
+  url.pathname = `/${detectedCountry}/${browserLanguage}${pathname.replace(`/${userCountryISO}/${userLanguage}/`, "")}`;
   return NextResponse.redirect(url);
 }
 

@@ -1,33 +1,36 @@
-"use client";
-import { useEffect, useState } from "react";
-import Preloader from "./components/preloader";
-import { AnimatePresence } from "framer-motion";
-import { IntlProvider } from 'next-intl'; // Ensure intl provider is used for translation
-import ShuffleHero from "./components/Heor";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import React from "react";
+import ClientLayout from "./components/ClientLayout";
+import Product from "./components/product";
 
 type Props = {
-  params: { locale: string }; // Ensure locale comes from params
-  messages: object; // Add messages prop for translations
+  params: { locale: string };
 };
 
-export default function Home({ params: { locale }, messages }: Props) {
-  const [isLoading, setIsLoading] = useState(true);
+const page = async ({ params: { locale } }: Props) => {
+  // Await the result of getTranslationsa
+  const t = await getTranslations({ locale });
 
-  // Simulate preloader loading state
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-  }, []);
+  // Set the locale for the request
+  unstable_setRequestLocale(locale);
 
   return (
-    <IntlProvider locale={locale}> {/* Wrap with IntlProvider */}
-      <div className="flex flex-row gap-10">
-        <AnimatePresence mode="wait">
-          {isLoading && <Preloader />}
-        </AnimatePresence>
-       
+    <div className="flex flex-col h-full items-center">
+      <ClientLayout
+        locale={locale}
+        translations={{
+          heading: t("shuffleHero.heading"),
+          subheading: t("shuffleHero.subheading"),
+          description: t("shuffleHero.description"),
+          button: t("shuffleHero.button"),
+        }}
+      />
+      <div className="mt-32 flex flex-row gap-8">
+        <Product id={"productOne"} locale={locale} />
+        <Product id={"productTwo"} locale={locale} />
       </div>
-    </IntlProvider>
+    </div>
   );
-}
+};
+
+export default page;

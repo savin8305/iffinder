@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import Button from "@/app/[country]/[locale]/components/button";
 import write from "public/write.svg";
@@ -17,7 +16,7 @@ export default async function Product({ id, locale }: Props) {
 
   const t = await getTranslations({ locale });
   return (
-    <div className="rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl bg-slate-700 max-w-96">
+    <div className="rounded-lg px-6  py-32 ring-1 ring-slate-900/5 shadow-xl bg-slate-700 max-w-96">
       <span className="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
         <Image
           alt={t(`products.${id}.altText`)}
@@ -31,8 +30,8 @@ export default async function Product({ id, locale }: Props) {
       <p className="text-slate-400 mt-2 text-sm">
         {t(`products.${id}.description`)}
       </p>
-      <Link href={"/about"}>
-        about
+      <Link href={'/pricing'}>
+        {t("navbar.pricing")}
       </Link>
     </div>
   );

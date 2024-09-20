@@ -1,40 +1,52 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { defaultLocale } from "@/constants/config";
-import Product from "./components/product";
+import { CountryCode, countryNames, defaultLocale } from "@/constants/config";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Navbar } from "./components/header";
-import MainLayout from "./components/main-layout";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Your App Title",
-  description: "Description of your app",
-};
+
+export async function generateMetadata({
+  params: { country, locale },
+}: {
+  params: { country: CountryCode; locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale });
+  const countryName = countryNames[country] || "Country"; // Fallback if the ISO isn't found
+
+  return {
+    title: `${t("meta.home.title")} - ${countryName}`, // Append country name
+    description: `${t("meta.home.description")} (${countryName})`, // Append country name
+  };
+}
 
 export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "nl" }];
+  return [
+    { country: "in", locale: "en" },
+    { country: "in", locale: "nl" },
+    // Add more combinations as needed
+  ];
 }
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { country: CountryCode; locale: string };
 };
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params: { country, locale },
 }: Readonly<Props>) {
   const supportedLocales = ["en", "fr", "nl", "de", "es", "hi", "ta"];
 
-  // Fetch translations for navbar
   const t = await getTranslations({ locale });
 
   const generateHreflangLinks = () => {
     const hreflangLinks = supportedLocales.map((locale) => {
-      const url = `/${locale}`;
+      const url = `/${country}/${locale}`; // Include country in URL
       return <link key={locale} rel="alternate" hrefLang={locale} href={url} />;
     });
 
@@ -43,7 +55,7 @@ export default async function RootLayout({
         key="x-default"
         rel="alternate"
         hrefLang="x-default"
-        href={`/${defaultLocale}`}
+        href={`/${country}/${defaultLocale}`} // Include country in default URL
       />
     );
 
@@ -65,7 +77,8 @@ export default async function RootLayout({
             blog: t("navbar.blog"),
           }}
         />
-        <MainLayout children={children} locale={locale} />
+        {children}
+        <Footer locale={locale} />
       </body>
     </html>
   );

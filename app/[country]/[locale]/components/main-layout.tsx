@@ -1,4 +1,3 @@
-import Footer from "@/app/[country]/[locale]/components/footer";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import ClientLayout from "./ClientLayout";
 import Product from "./product";
@@ -14,7 +13,6 @@ export default async function MainLayout({ children, locale }: Props) {
 
   return (
     <div className="flex flex-col h-full  items-center">
-      {/* Pass the translations to the client layout */}
       <ClientLayout
         locale={locale}
         translations={{
@@ -28,7 +26,6 @@ export default async function MainLayout({ children, locale }: Props) {
         <Product id={"productOne"} locale={locale} />
         <Product id={"productTwo"} locale={locale} />
       </div>
-      <Footer locale={locale} />
     </div>
   );
 }

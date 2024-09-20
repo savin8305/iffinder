@@ -1,16 +1,38 @@
 {
-  "Test": {
-    "title": "Hello"
+  "meta": {
+    "home": {
+      "title": "Welcome to Your App",
+      "description": "Discover amazing features and pricing plans tailored for you."
+    },
+    "about": {
+      "title": "About Us",
+      "description": "Learn more about our mission and values."
+    },
+    "pricing": {
+      "title": "Pricing Plans",
+      "description": "Choose the best plan that fits your needs."
+    }
   },
-  "title": "The Logo",
   "navbar": {
     "home": "Home",
+    "about": "About",
     "pricing": "Pricing",
     "features": "Features",
     "docs": "Docs",
     "blog": "Blog"
   },
- 
+  "footer": {
+    "allRights": "All rights reserved (not really)"
+  },
+  "localeSwitcher": {
+    "label": "Change language"
+  },
+  "shuffleHero": {
+    "heading": "Better every day",
+    "subheading": "Let's change it up a bit",
+    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
+    "button": "Find a class"
+  },
   "products": {
     "catalog": "Catalog",
     "cart": "Add to Cart",
@@ -25,16 +47,38 @@
       "description": "The i18n pen will translate your text for you. Just write your phrase and magically it will be translated to any language you want!"
     }
   },
-  "footer": {
-    "allRights": "All rights reserved (not really)"
-  },
-  "localeSwitcher": {
-    "label": "Change language"
-  },
-  "shuffleHero": {
-    "heading": "Better every day",
-    "subheading": "Let's change it up a bit",
-    "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam nobis in error repellat voluptatibus ad.",
-    "button": "Find a class"
+  "pricingPage": {
+    "heading": "Exclusive Pricing Plans for You",
+    "description": "Unlock premium features with our flexible and tailored pricing options.",
+    "basic": {
+      "title": "Basic",
+      "subtitle": "Perfect for personal use",
+      "price": "$9",
+      "features": {
+        "unlimitedAccess": "Unlimited Access",
+        "basicSupport": "Basic Support",
+        "communityAccess": "Community Access"
+      }
+    },
+    "pro": {
+      "title": "Pro",
+      "subtitle": "Ideal for professionals",
+      "price": "$29",
+      "features": {
+        "allBasicFeatures": "All Basic Features",
+        "prioritySupport": "Priority Support",
+        "exclusiveUpdates": "Exclusive Updates"
+      }
+    },
+    "enterprise": {
+      "title": "Enterprise",
+      "subtitle": "For large businesses",
+      "price": "$99",
+      "features": {
+        "allProFeatures": "All Pro Features",
+        "dedicatedSupport": "Dedicated Support",
+        "customSolutions": "Custom Solutions"
+      }
+    }
   }
 }
