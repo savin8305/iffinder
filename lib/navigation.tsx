@@ -7,7 +7,7 @@ export default function NavigateButton() {
 
   function handleNavigate() {
     const [countryCode, localeCode, ...rest] = pathname.split("/").filter(Boolean);
-    const newPage = "about"; // Target page to navigate to, e.g., 'about'
+    const newPage = "about"; 
     const newPath = `/${countryCode}/${localeCode}/${newPage}`;
 
     router.push(newPath); // Navigate to the new path

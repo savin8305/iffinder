@@ -1,0 +1,16 @@
+{
+    "products": {
+        "catalog": "Catalogue",
+        "cart": "Ajouter au panier",
+        "productOne": {
+          "altText": "Icône de crayon",
+          "title": "Écrit à l'envers",
+          "description": "Le stylo zéro gravité peut être utilisé pour écrire dans n'importe quelle orientation, y compris à l'envers. Il fonctionne même dans l'espace."
+        },
+        "productTwo": {
+          "altText": "Icône de crayon",
+          "title": "Écrit dans n'importe quelle langue",
+          "description": "Le stylo i18n traduira votre texte pour vous. Écrivez simplement votre phrase et elle sera magiquement traduite dans n'importe quelle langue souhaitée!"
+        }
+      }
+}

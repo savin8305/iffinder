@@ -1,0 +1,9 @@
+{
+    "navbar": {
+        "home": "Accueil",
+        "pricing": "Tarifs",
+        "features": "Fonctionnalités",
+        "docs": "Documents",
+        "blog": "Blog"
+      }
+}

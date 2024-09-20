@@ -1,0 +1,9 @@
+{
+  "navbar": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "features": "Features",
+    "docs": "Docs",
+    "blog": "Blog"
+  }
+}
