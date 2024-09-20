@@ -322,43 +322,40 @@ const validCountryISOs = [
   "zm",
   "zw",
 ];
-const validLocales = ["en", "fr", "nl", "de", "es", "ta"]; // Supported locales
-const defaultLocale = "en"; // Fallback language
 
-// Function to fetch user location based on IP address using ipinfo.io
-async function fetchUserLocation() {
+// Function to fetch user location based on client IP address
+async function fetchUserLocation(req: NextRequest) {
   try {
-    console.log("Fetching location data for IP...");
-    const res = await fetch(`https://ipinfo.io/json`);
+    console.log("Fetching client IP address...");
 
-    if (!res.ok) throw new Error("Failed to fetch location data for IP.");
+    // Attempt to get the client's IP address from request headers
+    const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip");
+
+    if (!clientIP) {
+      throw new Error("Unable to detect client IP address.");
+    }
+
+    console.log("Detected client IP address:", clientIP);
+
+    // Fetch location data based on the detected client IP address
+    const res = await fetch(`https://ipinfo.io/${clientIP}/json`);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch location data for client IP.");
+    }
 
     const data = await res.json();
     console.log("Location data received:", data);
 
     return {
       country: data.country?.toLowerCase() || "us", // Default to 'us' if country is unavailable
-      language: "en", // Default to 'en' as ipinfo.io does not provide language info
+      language: "en", // Default to 'en' (ipinfo.io doesn't provide language info)
     };
   } catch (error) {
     console.error("Error fetching user location:", error);
-    // Default to US and English if there's an error
-    return { country: "in", language: "en" };
+    // Default to a fallback country and language in case of an error
+    return { country: "us", language: "en" };
   }
-}
-
-// Function to get the browser language from the 'accept-language' header
-function getBrowserLanguage(req: NextRequest) {
-  const acceptLanguageHeader = req.headers.get("accept-language");
-  if (!acceptLanguageHeader) return defaultLocale;
-
-  // Extract the first preferred language from the 'accept-language' header
-  const browserLanguage = acceptLanguageHeader.split(",")[0]?.split("-")[0]; // Just the language code
-  console.log("Browser language detected:", browserLanguage);
-
-  return validLocales.includes(browserLanguage)
-    ? browserLanguage
-    : defaultLocale;
 }
 
 // Middleware logic to handle redirection and validation
@@ -367,8 +364,6 @@ export async function middleware(req: NextRequest) {
   console.log("Current path:", pathname);
 
   const pathParts = pathname.split("/").filter(Boolean); // Get all parts of the path
-
-  // Check if the path includes a country ISO code (e.g., /in/fr)
   const userCountryISO = pathParts[0]?.toLowerCase(); // First part is country
   const userLanguage = pathParts[1]?.toLowerCase(); // Second part is language
 
@@ -379,14 +374,13 @@ export async function middleware(req: NextRequest) {
   const isCountryValid = validCountryISOs.includes(userCountryISO);
   const isLanguageValid = validLocales.includes(userLanguage);
 
-  // If the country and language are valid, proceed
   if (isCountryValid && isLanguageValid) {
     console.log("Valid country and language, proceeding...");
     return NextResponse.next(); // No redirection needed
   }
 
   // Fetch the user's actual location (country and language) based on IP
-  const userLocation = await fetchUserLocation();
+  const userLocation = await fetchUserLocation(req);
   const { country: detectedCountry } = userLocation;
 
   // Get browser's preferred language from accept-language header
@@ -402,7 +396,6 @@ export async function middleware(req: NextRequest) {
   }
 
   // Construct the new valid URL using detected country and browser language
-  // Redirect to the correct URL
   const url = req.nextUrl.clone();
   url.pathname = `/${detectedCountry}/${browserLanguage}${pathname.replace(
     `/${userCountryISO}/${userLanguage}/`,
@@ -417,3 +410,21 @@ export const config = {
     "/((?!_next/static|_next/image|favicon.ico|api).*)", // Exclude static assets, image optimization, favicon, and API routes
   ],
 };
+
+// Helper function to get the browser language from the 'accept-language' header
+function getBrowserLanguage(req: NextRequest) {
+  const acceptLanguageHeader = req.headers.get("accept-language");
+  if (!acceptLanguageHeader) return defaultLocale;
+
+  // Extract the first preferred language from the 'accept-language' header
+  const browserLanguage = acceptLanguageHeader.split(",")[0]?.split("-")[0]; // Just the language code
+  console.log("Browser language detected:", browserLanguage);
+
+  return validLocales.includes(browserLanguage)
+    ? browserLanguage
+    : defaultLocale;
+}
+
+// List of valid ISO country codes and locales
+const validLocales = ["en", "fr", "nl", "de", "es", "ta"];
+const defaultLocale = "en";
