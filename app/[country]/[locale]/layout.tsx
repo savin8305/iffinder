@@ -4,10 +4,12 @@ import "./globals.css";
 import { CountryCode, countryNames, defaultLocale } from "@/constants/config";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Navbar } from "./components/header";
-import Footer from "./components/footer";
+import NavLayout from "../../../components/Navbar/NavLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const apiUrl = "https://jsondatafromhostingertosheet.nesscoindustries.com/";
+const locales = ["en", "fr", "nl", "de", "es", "hi", "ta"] as const;
 
 export async function generateMetadata({
   params: { country, locale },
@@ -17,9 +19,29 @@ export async function generateMetadata({
   const t = await getTranslations({ locale });
   const countryName = countryNames[country] || "Country"; // Fallback if the ISO isn't found
 
+  let heroData;
+  try {
+    // Fetch hero data based on the locale
+    const heroRes = await fetch(`${apiUrl}${locale}/hero.json`);
+    if (!heroRes.ok) {
+      throw new Error(`Failed to fetch hero data for locale: ${locale}`);
+    }
+    heroData = await heroRes.json();
+    console.log(`Hero data for locale ${locale}:`, heroData);
+  } catch (error) {
+    console.error(`Error fetching hero data for locale ${locale}:`, error);
+    // Fallback to English if API request fails
+    const fallbackRes = await fetch(`${apiUrl}en/hero.json`);
+    heroData = await fallbackRes.json();
+  }
+
+  // Use heroData to populate metadata with a fallback if data is missing
+  const metaTitle = heroData?.home?.[0]?.homeSeoData?.title || t("meta.home.title");
+  const metaDescription = heroData?.home?.[0]?.homeSeoData?.description || t("meta.home.description");
+
   return {
-    title: `${t("meta.home.title")} - ${countryName}`, // Append country name
-    description: `${t("meta.home.description")} (${countryName})`, // Append country name
+    title: `${metaTitle} - ${countryName}`, // Append country name
+    description: `${metaDescription} (${countryName})`, // Append country name
   };
 }
 
@@ -40,10 +62,27 @@ export default async function RootLayout({
   children,
   params: { country, locale },
 }: Readonly<Props>) {
+  // If the locale isn't in the allowed list, default to English
+  if (!locales.includes(locale as any)) {
+    locale = "en"; // Fallback to English
+  }
+
+  let heroData;
+  try {
+    // Fetch hero data based on the locale
+    const heroRes = await fetch(`${apiUrl}${locale}/hero.json`);
+    if (!heroRes.ok) {
+      throw new Error(`Failed to fetch hero data for locale: ${locale}`);
+    }
+    heroData = await heroRes.json();
+    console.log(`Hero data for locale ${locale}:`, heroData);
+  } catch (error) {
+    console.error(`Error fetching hero data for locale ${locale}:`, error);
+    // Fallback to English if API request fails
+    const fallbackRes = await fetch(`${apiUrl}en/hero.json`);
+    heroData = await fallbackRes.json();
+  }
   const supportedLocales = ["en", "fr", "nl", "de", "es", "hi", "ta"];
-
-  const t = await getTranslations({ locale });
-
   const generateHreflangLinks = () => {
     const hreflangLinks = supportedLocales.map((locale) => {
       const url = `/${country}/${locale}`; // Include country in URL
@@ -63,7 +102,7 @@ export default async function RootLayout({
   };
 
   unstable_setRequestLocale(locale);
-
+  const t = await getTranslations({ locale });
   return (
     <html lang={locale}>
       <head>{generateHreflangLinks()}</head>
@@ -77,8 +116,8 @@ export default async function RootLayout({
             blog: t("navbar.blog"),
           }}
         />
+        <NavLayout/>
         {children}
-        <Footer locale={locale} />
       </body>
     </html>
   );

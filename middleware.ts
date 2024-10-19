@@ -70,7 +70,6 @@
 //   ],
 // };
 import { NextResponse, NextRequest } from "next/server";
-import createMiddleware from "next-intl/middleware";
 
 // List of valid ISO country codes (ISO 3166-1 alpha-2)
 const validCountryISOs = [
@@ -327,23 +326,19 @@ const validCountryISOs = [
 async function fetchUserLocation(req: NextRequest) {
   try {
     console.log("Fetching client IP address...");
-
     // Attempt to get the client's IP address from request headers
-    const clientIP = req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip");
-
+    const clientIP =
+      req.headers.get("x-forwarded-for")?.split(",")[0] ||
+      req.headers.get("x-real-ip");
     if (!clientIP) {
       throw new Error("Unable to detect client IP address.");
     }
-
     console.log("Detected client IP address:", clientIP);
-
     // Fetch location data based on the detected client IP address
-    const res = await fetch(`https://ipinfo.io/${clientIP}/json`);
-
+    const res = await fetch(`https://ipinfo.io/json`);
     if (!res.ok) {
       throw new Error("Failed to fetch location data for client IP.");
     }
-
     const data = await res.json();
     console.log("Location data received:", data);
 
@@ -424,7 +419,6 @@ function getBrowserLanguage(req: NextRequest) {
     ? browserLanguage
     : defaultLocale;
 }
-
 // List of valid ISO country codes and locales
-const validLocales = ["en", "fr", "nl", "de", "es", "ta"];
+const validLocales = ["en", "fr", "nl", "de", "es", "ta", "hi"];
 const defaultLocale = "en";

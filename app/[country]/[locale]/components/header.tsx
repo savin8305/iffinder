@@ -9,7 +9,6 @@ export const Navbar = ({
   return (
     <div className="bg-neutral-100 py-1 fixed w-full z-[99999]">
       <div className="flex justify-center items-center  mx-auto px-4">
-        <SlideTabs translations={translations} />
         <LocaleSwitcher/>
       </div>
     </div>

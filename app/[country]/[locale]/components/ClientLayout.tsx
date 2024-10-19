@@ -24,7 +24,9 @@ type GenerateMetadataProps = {
   };
 };
 
-export async function generateMetadata({ params }: GenerateMetadataProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: GenerateMetadataProps): Promise<Metadata> {
   try {
     const t = await getTranslations({ locale: params.locale });
     return {
@@ -55,11 +57,7 @@ export default function ClientLayout({ locale, translations }: Props) {
         {/* Display preloader if isLoading is true */}
         {isLoading && <Preloader />}
       </AnimatePresence>
-      {!isLoading && (
-        <ShuffleHero
-          translations={translations}
-        />
-      )}
+      {!isLoading && <ShuffleHero translations={translations} />}
     </div>
   );
 }

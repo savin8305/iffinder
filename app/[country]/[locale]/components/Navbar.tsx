@@ -23,11 +23,7 @@ export const SlideTabs = ({
       }}
       className="relative flex w-fit rounded-full  bg-white "
     >
-      <Tab setPosition={setPosition}>{translations.home}</Tab>
-      <Tab setPosition={setPosition}>{translations.pricing}</Tab>
-      <Tab setPosition={setPosition}>{translations.features}</Tab>
-      <Tab setPosition={setPosition}>{translations.docs}</Tab>
-      <Tab setPosition={setPosition}>{translations.blog}</Tab>
+      
       <Cursor position={position} />
     </ul>
   );
@@ -56,7 +52,7 @@ const Tab = ({
           opacity: 1,
         });
       }}
-      className="relative z-10 block cursor-pointer px-3 py-1 text-xs uppercase text-black md:px-5 md:py-1 md:text-base"
+      className="relative z-10  cursor-pointer px-3 py-1 text-xs uppercase text-black md:px-5 md:py-1 md:text-base"
     >
       {children}
     </li>
