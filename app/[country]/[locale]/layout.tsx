@@ -4,7 +4,6 @@ import "./globals.css";
 import { CountryCode, countryNames, defaultLocale } from "@/constants/config";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Navbar } from "./components/header";
-import NavLayout from "../../../components/Navbar/NavLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -116,7 +115,7 @@ export default async function RootLayout({
             blog: t("navbar.blog"),
           }}
         />
-        <NavLayout/>
+      
         {children}
       </body>
     </html>

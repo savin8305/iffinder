@@ -321,21 +321,25 @@ const validCountryISOs = [
   "zm",
   "zw",
 ];
-
-// Function to fetch user location based on client IP address
+// Function to fetch user location based on client IP address using ipwhois.app
 async function fetchUserLocation(req: NextRequest) {
   try {
     console.log("Fetching client IP address...");
+    
     // Attempt to get the client's IP address from request headers
-    const clientIP =
-      req.headers.get("x-forwarded-for")?.split(",")[0] ||
-      req.headers.get("x-real-ip");
+    const isproduction="development"
+    const clientIP = isproduction === 'development' 
+    ? '8.8.8.8' // Example IP (Google's public DNS, located in the US)
+    : req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip");
+  
+
     if (!clientIP) {
       throw new Error("Unable to detect client IP address.");
     }
     console.log("Detected client IP address:", clientIP);
+
     // Fetch location data based on the detected client IP address
-    const res = await fetch(`https://ipinfo.io/json`);
+    const res = await fetch(`https://ipwhois.app/json/${clientIP}`);
     if (!res.ok) {
       throw new Error("Failed to fetch location data for client IP.");
     }
@@ -343,8 +347,8 @@ async function fetchUserLocation(req: NextRequest) {
     console.log("Location data received:", data);
 
     return {
-      country: data.country?.toLowerCase() || "us", // Default to 'us' if country is unavailable
-      language: "en", // Default to 'en' (ipinfo.io doesn't provide language info)
+      country: data.country_code?.toLowerCase() || "us", // Default to 'us' if country code is unavailable
+      language: "en", // Default to 'en' (ipwhois.app doesn't provide language info)
     };
   } catch (error) {
     console.error("Error fetching user location:", error);
@@ -419,6 +423,7 @@ function getBrowserLanguage(req: NextRequest) {
     ? browserLanguage
     : defaultLocale;
 }
+
 // List of valid ISO country codes and locales
 const validLocales = ["en", "fr", "nl", "de", "es", "ta", "hi"];
 const defaultLocale = "en";
