@@ -327,11 +327,9 @@ async function fetchUserLocation(req: NextRequest) {
     console.log("Fetching client IP address...");
     
     // Attempt to get the client's IP address from request headers
-    const isproduction="development"
-    const clientIP = isproduction === 'development' 
-    ? '8.8.8.8' // Example IP (Google's public DNS, located in the US)
-    : req.headers.get("x-forwarded-for")?.split(",")[0] || req.headers.get("x-real-ip");
-  
+    const clientIP =
+      req.headers.get("x-forwarded-for")?.split(",")[0] ||
+      req.headers.get("x-real-ip");
 
     if (!clientIP) {
       throw new Error("Unable to detect client IP address.");
